@@ -49,7 +49,9 @@ public class TotalOrderDao {
      * @throws SQLException In case of an error
      */
     private CallableStatement createCallableStatement(Connection con, long customerId) throws SQLException {
+        CallableStatement cs = con.prepareCall(query);
+        cs.setLong(1, customerId);
 
-        return null;
+        return cs;
     }
 }
