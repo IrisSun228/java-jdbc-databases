@@ -7,6 +7,7 @@ import com.pluralsight.order.util.ExceptionHandler;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -48,7 +49,7 @@ public class DeleteOrderDao {
      * @return Delete SQL statement
      */
     private String buildDeleteSql(List<Long> orderIds) {
-        String ids = null;
+        String ids = String.join(",", Collections.nCopies(orderIds.size(), "?"));
 
         return "DELETE FROM orders o WHERE o.order_id IN (" + ids + ")";
     }
