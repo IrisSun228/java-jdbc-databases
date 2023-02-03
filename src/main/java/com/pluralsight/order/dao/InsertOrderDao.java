@@ -56,7 +56,12 @@ public class InsertOrderDao {
 
                             try (PreparedStatement detailsPS =
                                          createOrderDetailPreparedStatement(con, orderDetailDto)) {
-                                detailsPS.executeUpdate();
+                                int check = detailsPS.executeUpdate();
+
+                                if (check != 1) {
+                                    con.rollback();
+                                    orderId = -1;
+                                }
                             }
                         }
 
