@@ -64,7 +64,7 @@ public class InsertOrderDao {
                                 }
                             }
                         }
-
+                        con.commit();
                     }
                 }
             } catch(SQLException ex) {
