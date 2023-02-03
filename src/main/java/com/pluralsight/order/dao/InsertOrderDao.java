@@ -97,7 +97,11 @@ public class InsertOrderDao {
      * @throws SQLException In case of an error
      */
     private PreparedStatement createOrderDetailPreparedStatement(Connection con, OrderDetailDto orderDetailDto) throws SQLException {
+        PreparedStatement ps = con.prepareStatement(sqlOrderDetail);
+        ps.setLong(1, orderDetailDto.getOrderId());
+        ps.setLong(2, orderDetailDto.getProductId());
+        ps.setInt(3, orderDetailDto.getQuantity());
 
-        return null;
+        return ps;
     }
 }
