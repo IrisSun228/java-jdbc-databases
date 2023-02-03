@@ -41,7 +41,7 @@ public class InsertOrderDao {
         try (Connection con = database.getConnection();
              PreparedStatement ps = createOrderPreparedStatement(con, orderDto)
         ) {
-
+            con.setAutoCommit(false);
 
 
             try (ResultSet result = null) {
