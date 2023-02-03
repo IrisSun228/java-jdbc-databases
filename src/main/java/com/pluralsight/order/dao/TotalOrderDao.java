@@ -34,7 +34,11 @@ public class TotalOrderDao {
              CallableStatement cs = createCallableStatement(con, paramsDto.getCustomerId())
         ) {
             cs.execute();
-            try(ResultSet resultSet = cs.getResultSet()){}
+            try(ResultSet resultSet = cs.getResultSet()){
+                if (resultSet != null && resultSet.next()) {
+                    result = resultSet.getBigDecimal(1);
+                }
+            }
         } catch (SQLException ex) {
             ExceptionHandler.handleException(ex);
         }
