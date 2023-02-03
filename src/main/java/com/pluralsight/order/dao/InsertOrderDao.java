@@ -56,7 +56,7 @@ public class InsertOrderDao {
 
                             try (PreparedStatement detailsPS =
                                          createOrderDetailPreparedStatement(con, orderDetailDto)) {
-
+                                detailsPS.executeUpdate();
                             }
                         }
 
