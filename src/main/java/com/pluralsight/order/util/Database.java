@@ -15,6 +15,7 @@ public class Database {
     private static boolean isInitialized = false;
     private String url = "jdbc:h2:mem:orders;DB_CLOSE_DELAY=-1";
     private String user = "sa";
+    private String password = "";
 
     /**
      * Private constructor
