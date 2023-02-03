@@ -49,7 +49,7 @@ public class InsertOrderDao {
                     if(!result.next()){
                         con.rollback();
                     } else {
-
+                        orderId = result.getLong(1);
 
                         for (OrderDetailDto orderDetailDto : orderDto.getOrderDetail()) {
                             orderDetailDto.setOrderId(orderId);
