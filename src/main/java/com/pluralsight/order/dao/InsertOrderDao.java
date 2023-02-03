@@ -47,7 +47,7 @@ public class InsertOrderDao {
             try (ResultSet result = ps.getGeneratedKeys()) {
                 if(result != null) {
                     if(!result.next()){
-
+                        con.rollback();
                     } else {
 
 
