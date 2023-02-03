@@ -53,8 +53,10 @@ public class GetOrderDao {
      * @throws SQLException In case of an error
      */
     private PreparedStatement createPreparedStatement(Connection con, long orderId) throws SQLException {
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setLong(1, orderId);
 
-        return null;
+        return ps;
     }
 
     /**
